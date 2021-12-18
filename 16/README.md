@@ -1,4 +1,4 @@
-# Day 16: Packet Decoder
+# [Day 16: Packet Decoder](https://adventofcode.com/2021/day/16)
 
 As you leave the cave and reach open waters, you receive a transmission from the Elves back on the ship.
 
