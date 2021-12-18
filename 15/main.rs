@@ -42,7 +42,6 @@ impl Ord for Path {
 
 fn shortest_path(grid: &[Vec<u32>]) -> u32 {
     let len = grid.len();
-    let range = 0..len;
     let end = (len - 1, len - 1);
 
     let mut start = (0, 0);
@@ -55,9 +54,11 @@ fn shortest_path(grid: &[Vec<u32>]) -> u32 {
 
         let mut visit = |x2, y2| {
             let p = (x2, y2);
-            if !visited.contains(&p) && range.contains(&x2) && range.contains(&y2) {
+            if !visited.contains(&p) && x2 < len && y2 < len {
+                // needs type annotations for some reason
+                let row: &Vec<u32> = &grid[y2];
                 heap.push(Path {
-                    cost: cost + grid[y2][x2],
+                    cost: cost + row[x2],
                     point: p,
                 });
             }
