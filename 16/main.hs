@@ -20,10 +20,9 @@ boolToInt :: Integral a => Bool -> a
 boolToInt = bool 0 1
 
 runReadP :: Show a => ReadP a -> String -> a
-runReadP r s = case readP_to_S r s of
-  [(a, "")] -> a
+runReadP r s = case readP_to_S (r <* eof) s of
+  [(a, _)] -> a
   [] -> error "runReadP: no parse"
-  [(_, s')] -> error $ "runReadP: leftover chars" <> s'
   xs -> error $ "runReadP: multiple parses: " <> show xs
 
 readBin :: (Eq a, Num a, Show a) => String -> a
@@ -93,7 +92,7 @@ parsePacket = do
   Packet v <$> if t == 4 then Lit <$> parseLit else Op (parseOpType t) <$> parseOp
 
 parse :: String -> Packet
-parse = runReadP (parsePacket <* munch (=='0') <* eof) . (>>= hexToBin)
+parse = runReadP (parsePacket <* munch (=='0')) . (>>= hexToBin)
 
 part1 :: Packet -> Word
 part1 (Packet v (Lit   _)) = v
