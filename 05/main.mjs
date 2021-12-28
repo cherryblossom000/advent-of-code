@@ -4,16 +4,10 @@
 
 import {readFile} from 'node:fs/promises'
 
-/** @typedef {[[number, number], [number, number]]} Line */
+/** @typedef {[number, number]} Point */
+/** @typedef {[Point, Point]} Line */
 
-const input = (await readFile(new URL('input.txt', import.meta.url), 'utf8'))
-  .split('\n')
-  .map(
-    l =>
-      /** @type {Line} */ (l.split(' -> ').map(p => p.split(',').map(Number)))
-  )
-
-/** @param {Line[]} lines */
+/** @param {readonly Line[]} lines */
 const solution = lines =>
   lines
     .reduce((field, [[x1, y1], [x2, y2]]) => {
@@ -53,10 +47,18 @@ const solution = lines =>
     .flat()
     .filter(x => x > 1).length
 
-// Part 1
-console.log(
+/** @param {readonly Line[]} input */
+const part1 = input =>
   solution(input.filter(([[x1, y1], [x2, y2]]) => x1 === x2 || y1 === y2))
-)
 
-// Part 2
-console.log(solution(input))
+const part2 = solution
+
+const input = (await readFile(new URL('input.txt', import.meta.url), 'utf8'))
+  .split('\n')
+  .map(
+    l =>
+      /** @type {Line} */ (l.split(' -> ').map(p => p.split(',').map(Number)))
+  )
+
+console.log(part1(input))
+console.log(part2(input))

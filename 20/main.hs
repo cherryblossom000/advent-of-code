@@ -7,7 +7,6 @@ import Data.Array      qualified as A
 import Data.Bits       (Bits, (.|.), shiftL)
 import Data.Bool       (bool)
 import Data.Foldable   (foldl', traverse_)
-import Data.Maybe      (fromMaybe)
 import Data.Map.Strict qualified as M
 import Data.Word       (Word16)
 
@@ -46,7 +45,7 @@ square (i, j) =
 enhance :: Algorithm -> Image -> Image
 enhance alg (img, bg) =
   ( M.fromList
-    [ (p, alg A.! pixelsToInt (fromMaybe bg . (img M.!?) <$> square p))
+    [ (p, alg A.! pixelsToInt (flip (M.findWithDefault bg) img <$> square p))
     | i <- [minX-2 .. maxX+2]
     , j <- [minY-2 .. maxY+2]
     , let p = (i, j)

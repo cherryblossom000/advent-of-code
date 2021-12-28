@@ -47,8 +47,8 @@ Both the oxygen generator rating and the CO<sub>2</sub> scrubber rating are valu
 
 The **bit criteria** depends on which type of rating value you want to find:
 
-- To find **oxygen generator rating**, determine the **most common** value (`0` or `1`) in the current bit position, and keep only numbers with that bit in that position. If `0` and `1` are equally common, keep values with a `1` in the position being considered.
-- To find **CO<sub>2</sub> scrubber rating**, determine the least common value (`0` or `1`) in the current bit position, and keep only numbers with that bit in that position. If `0` and `1` are equally common, keep values with a `0` in the position being considered.
+- To find **oxygen generator rating**, determine the **most common** value (`0` or `1`) in the current bit position, and keep only numbers with that bit in that position. If `0` and `1` are equally common, keep values with a **`1`** in the position being considered.
+- To find **CO<sub>2</sub> scrubber rating**, determine the **least common** value (`0` or `1`) in the current bit position, and keep only numbers with that bit in that position. If `0` and `1` are equally common, keep values with a **`0`** in the position being considered.
 
 For example, to determine the **oxygen generator rating** value using the same example diagnostic report from above:
 

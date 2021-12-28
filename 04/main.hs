@@ -1,21 +1,23 @@
 #!/usr/bin/env runhaskell
 
-{-# LANGUAGE BlockArguments, OverloadedStrings, TupleSections #-}
+{-# LANGUAGE BlockArguments, LambdaCase, OverloadedStrings, TupleSections #-}
+{-# OPTIONS_GHC -Wall #-}
 
-import Data.List (partition)
+import Data.List (unfoldr, partition)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
 chunksOf :: Int -> [a] -> [[a]]
-chunksOf _ [] = []
-chunksOf n xs = take n xs : chunksOf n (drop n xs)
+chunksOf n = unfoldr \case
+  [] -> Nothing
+  xs -> Just $ splitAt n xs
 
-readInt :: T.Text -> Int
-readInt = read . T.unpack
+readText :: Read a => T.Text -> a
+readText = read . T.unpack
 
-type Board = [[(Int, Bool)]]
+type Board = [[(Word, Bool)]]
 
-play :: [Int] -> [Board] -> [(Board, Int)]
+play :: [Word] -> [Board] -> [(Board, Word)]
 play _ [] = []
 play (n:ns) bs = ((,n) <$> winners) <> play ns rest
   where
@@ -24,15 +26,16 @@ play (n:ns) bs = ((,n) <$> winners) <> play ns rest
     hasMarkedRow = any $ all snd
     hasMarkedColumn ([]:_) = False
     hasMarkedColumn b = all (snd . head) b || hasMarkedColumn (tail <$> b)
+play _ _ = error "no more numbers"
 
-score :: (Board, Int) -> Int
+score :: (Board, Word) -> Word
 score (b, n) = n * sum [x | r <- b, (x, False) <- r]
 
 main :: IO ()
 main = do
   (ns':_:bs') <- T.lines <$> T.readFile "input.txt"
-  let ns = readInt <$> T.splitOn "," ns'
-  let bs = map (map ((,False). readInt) . T.words) . init <$> chunksOf 6 bs'
+  let ns = readText <$> T.splitOn "," ns'
+  let bs = map (map ((,False). readText) . T.words) . init <$> chunksOf 6 bs'
 
   let winners = play ns bs
 

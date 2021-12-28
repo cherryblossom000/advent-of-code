@@ -43,55 +43,8 @@ part2 = paths False
 
 main :: IO ()
 main = do
-  input <- T.readFile "input.txt"
-  let inputs = parse <$> [sample1, sample2, sample3, input]
+  inputs <- traverse (fmap parse . T.readFile)
+    ["sample1.txt", "sample2.txt", "sample3.txt", "input.txt"]
   traverse_ (print . part1) inputs
   putStrLn ""
   traverse_ (print . part2) inputs
-
-sample1 :: T.Text
-sample1 = T.unlines
-  [ "start-A"
-  , "start-b"
-  , "A-c"
-  , "A-b"
-  , "b-d"
-  , "A-end"
-  , "b-end"
-  ]
-
-sample2 :: T.Text
-sample2 = T.unlines
-  [ "dc-end"
-  , "HN-start"
-  , "start-kj"
-  , "dc-start"
-  , "dc-HN"
-  , "LN-dc"
-  , "HN-end"
-  , "kj-sa"
-  , "kj-HN"
-  , "kj-dc"
-  ]
-
-sample3 :: T.Text
-sample3 = T.unlines
-  [ "fs-end"
-  , "he-DX"
-  , "fs-he"
-  , "start-DX"
-  , "pj-DX"
-  , "end-zg"
-  , "zg-sl"
-  , "zg-pj"
-  , "pj-he"
-  , "RW-he"
-  , "fs-DX"
-  , "pj-RW"
-  , "zg-RW"
-  , "start-pj"
-  , "he-WI"
-  , "zg-he"
-  , "pj-fs"
-  , "start-RW"
-  ]

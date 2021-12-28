@@ -16,20 +16,20 @@ toTuple [a, b] = (a, b)
 toTuple _      = error "expected 2 elements"
 
 data Axis = X | Y deriving (Eq, Read, Show)
-data Fold = Fold Axis Int deriving Show
+data Fold = Fold Axis Word deriving Show
 
-type Point = (Int, Int)
+type Point = (Word, Word)
 type Input = (S.Set Point, [Fold])
 
-readInt :: T.Text -> Int
-readInt = read . T.unpack
+readText :: Read a => T.Text -> a
+readText = read . T.unpack
 
 parse :: T.Text -> Input
 parse t = (S.fromList $ parsePoint <$> points, parseFold <$> folds)
   where
     (points, folds) = toTuple . map T.lines $ T.splitOn "\n\n" t
-    parsePoint = toTuple . map readInt . T.splitOn ","
-    parseFold s = Fold (read . pure . C.toUpper $ T.head s') (readInt $ T.drop 2 s')
+    parsePoint = toTuple . map readText . T.splitOn ","
+    parseFold s = Fold (read . pure . C.toUpper $ T.head s') (readText $ T.drop 2 s')
       where s' = T.drop (T.length "fold along ") s
 
 fold :: S.Set Point -> Fold -> S.Set Point

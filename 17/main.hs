@@ -14,7 +14,7 @@ toTuple _      = error "expected 2 elements"
 type Position = (Int, Int)
 type Velocity = (Int, Int)
 type State = (Position, Velocity)
-type Target = ((Int, Int), (Int, Int))
+type Target = (Position, Position)
 
 parse :: T.Text -> Target
 parse = toTuple

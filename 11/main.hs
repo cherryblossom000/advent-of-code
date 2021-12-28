@@ -8,10 +8,10 @@ import Control.Monad.State (State, evalState, get, gets, modify)
 import Data.Foldable       (traverse_)
 import Data.Map.Strict     qualified as M
 
-type Point = (Int, Int)
-type Grid = M.Map Point Int
+type Point = (Word, Word)
+type Grid = M.Map Point Word
 
-enumerate :: [a] -> [(Int, a)]
+enumerate :: (Enum i, Num i) => [a] -> [(i, a)]
 enumerate = zip [0..]
 
 parse :: String -> Grid
@@ -57,22 +57,7 @@ part2 = evalState $ go 1
 
 main :: IO ()
 main = do
-  input <- readFile "input.txt"
-  let inputs = parse <$> [sample, input]
+  inputs <- traverse (fmap parse . readFile) ["sample.txt", "input.txt"]
   traverse_ (print . part1) inputs
   putStrLn ""
   traverse_ (print . part2) inputs
-
-sample :: String
-sample = unlines
-  [ "5483143223"
-  , "2745854711"
-  , "5264556173"
-  , "6141336146"
-  , "6357385478"
-  , "4167524645"
-  , "2176841721"
-  , "6882881134"
-  , "4846848554"
-  , "5283751526"
-  ]

@@ -1,6 +1,7 @@
 #!/usr/bin/env runhaskell
 
 {-# LANGUAGE OverloadedStrings, TupleSections #-}
+{-# OPTIONS_GHC -Wall #-}
 
 import qualified Data.List as L
 import qualified Data.Map.Strict as M
@@ -9,8 +10,10 @@ import qualified Data.Text.IO as T
 
 toTuple :: [a] -> (a, a)
 toTuple [a, b] = (a, b)
+toTuple _      = error "expected 2 elements"
 
-type Line = ((Int, Int), (Int, Int))
+type Point = (Int, Int)
+type Line = (Point, Point)
 
 isVertical :: Line -> Bool
 isVertical ((x1, _), (x2, _)) = x1 == x2
@@ -21,7 +24,7 @@ isHorizontal ((_, y1), (_, y2)) = y1 == y2
 solution :: [Line] -> Int
 solution = M.size
          . M.filter (>1)
-         . L.foldl' (flip $ M.unionWith (+) . M.fromList . map (,1) . f) M.empty
+         . L.foldl' (flip $ M.unionWith (+) . M.fromList . map (,1 :: Word) . f) M.empty
   where
     f l@((x1, y1), (x2, y2)) | isVertical   l = (x1,) <$> range y1 y2
                              | isHorizontal l = (,y1) <$> range x1 x2

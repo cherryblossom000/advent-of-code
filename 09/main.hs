@@ -11,10 +11,10 @@ import Data.Map            qualified as M
 import Data.Map            ((!), (!?))
 import Data.Set            qualified as S
 
-type Point = (Int, Int)
-type Input = M.Map Point Int
+type Point = (Word, Word)
+type Input = M.Map Point Word
 
-enumerate :: [a] -> [(Int, a)]
+enumerate :: (Enum i, Num i) => [a] -> [(i, a)]
 enumerate = zip [0..]
 
 parse :: String -> Input
@@ -51,7 +51,7 @@ lowPoints xs = M.foldMapWithKey
   (\p x -> [p | all (maybe True (>x) . (xs!?) . dirFn p) allDirs])
   xs
 
-part1 :: Input -> Int
+part1 :: Input -> Word
 part1 xs = sum $ (+1) . (xs!) <$> lowPoints xs
 
 type S = State (S.Set Point) ()
@@ -76,17 +76,7 @@ part2 xs = product . take 3 . L.sortBy (flip compare) $ basinPoints xs <$> lowPo
 
 main :: IO ()
 main = do
-  input <- readFile "input.txt"
-  let inputs = parse <$> [sample, input]
+  inputs <- traverse (fmap parse . readFile) ["sample.txt", "input.txt"]
   traverse_ (print . part1) inputs
   putStrLn ""
   traverse_ (print . part2) inputs
-
-sample :: String
-sample = unlines
-  [ "2199943210"
-  , "3987894921"
-  , "9856789892"
-  , "8767896789"
-  , "9899965678"
-  ]

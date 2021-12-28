@@ -1,26 +1,23 @@
 #!/usr/bin/env node
 
+// @ts-check
+
 import {readFile} from 'node:fs/promises'
 
-const input = (await readFile(new URL('input.txt', import.meta.url), 'utf8'))
-  .split('\n')
-  .map(s => {
-    const [d, n] = s.split(' ')
-    return [d, Number(n)]
-  })
+/** @typedef {readonly [string, number]} Command */
 
-// Part 1
-;(() => {
+/** @param {Command[]} input */
+const part1 = input => {
   const [height, depth] = input.reduce(
     ([h, d], [dir, x]) =>
       dir === 'forward' ? [h + x, d] : dir === 'up' ? [h, d - x] : [h, d + x],
     [0, 0]
   )
-  console.log(height * depth)
-})()
+  return height * depth
+}
 
-// Part 2
-;(() => {
+/** @param {Command[]} input */
+const part2 = input => {
   const [height, depth] = input.reduce(
     ([h, d, a], [dir, x]) =>
       dir === 'forward'
@@ -30,5 +27,15 @@ const input = (await readFile(new URL('input.txt', import.meta.url), 'utf8'))
         : [h, d, a + x],
     [0, 0, 0]
   )
-  console.log(height * depth)
-})()
+  return height * depth
+}
+
+const input = (await readFile(new URL('input.txt', import.meta.url), 'utf8'))
+  .split('\n')
+  .map(s => {
+    const [d, n] = s.split(' ')
+    return /** @type {Command} */ ([d, Number(n)])
+  })
+
+console.log(part1(input))
+console.log(part2(input))

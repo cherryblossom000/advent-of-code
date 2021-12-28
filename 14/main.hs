@@ -17,12 +17,12 @@ toTuple _      = error "expected 2 elements"
 
 type Pair = (Char, Char)
 type Rules = M.Map Pair Char
-type PairsCounts = M.Map Pair Int
+type PairsCounts = M.Map Pair Word
 type Input = (PairsCounts, Char, Rules)
 
 parse :: T.Text -> Input
 parse s =
-    ( M.fromList $ (head &&& length) <$> L.group (L.sort $ T.zip t (T.tail t))
+    ( M.fromList $ (head &&& L.genericLength) <$> L.group (L.sort $ T.zip t (T.tail t))
     , T.last t
     , M.fromList
        $  bimap (toTuple . T.unpack) T.head . toTuple . T.splitOn " -> "
@@ -39,21 +39,21 @@ step rs m = M.foldrWithKey f m m
     f p@(a, b) x = add (c, b) x . add (a, c) x . M.adjust (subtract x) p
       where c = rs M.! p
 
-nTimes :: Int -> (a -> a) -> a -> a
+nTimes :: Word -> (a -> a) -> a -> a
 nTimes 1 f = f
 nTimes n f = f . nTimes (n - 1) f
 
-solution :: Int -> Input -> Int
+solution :: Word -> Input -> Word
 solution n (m, l, rs) = last xs - head xs
   where
     xs =  L.sort
        $  snd
       <$> M.toList (add l 1 . M.mapKeysWith (+) fst $ nTimes n (step rs) m)
 
-part1 :: Input -> Int
+part1 :: Input -> Word
 part1 = solution 10
 
-part2 :: Input -> Int
+part2 :: Input -> Word
 part2 = solution 40
 
 main :: IO ()
