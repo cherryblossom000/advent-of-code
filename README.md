@@ -2,7 +2,11 @@
 
 My solutions for the [Advent of Code 2021](https://adventofcode.com/2021).
 
-The solutions on here aren’t necessarily exactly the same as the ones I used to
-when solving the puzzles. After submitting, I refactored and cleaned up the code
-a little after and for some days I made additional solutions with other
-languages.
+## Todo
+
+- Day 19 part 1 + 2
+- Day 22 part 2
+- Day 23 part 1 + 2
+- Day 24 part 1 + 2
+- Day 25 part 2 (need to complete others first)
+- Non-brute force way of doing day 8 part 2
