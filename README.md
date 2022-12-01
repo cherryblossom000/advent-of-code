@@ -1,12 +1,5 @@
-# advent-of-code-2021
+# advent-of-code
 
-My solutions for the [Advent of Code 2021](https://adventofcode.com/2021).
+My solutions for the [Advent of Code](https://adventofcode.com).
 
-## Todo
-
-- Day 19 part 1 + 2
-- Day 22 part 2
-- Day 23 part 1 + 2
-- Day 24 part 1 + 2
-- Day 25 part 2 (need to complete others first)
-- Non-brute force way of doing day 8 part 2
+- [2021](./2021)
