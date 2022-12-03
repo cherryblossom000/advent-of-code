@@ -1,0 +1,18 @@
+.vscode/
+# Haskell
+*.hi
+*.o
+.ghci
+template.hs
+# Rust
+target/
+# Idris
+*.so
+*.ss
+main
+main_app
+out/
+build/
+# Unison (pushed to Unison Share instead)
+.unison/
+.unisonConfig

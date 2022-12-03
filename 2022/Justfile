@@ -1,0 +1,22 @@
+dir := invocation_directory()
+out := dir / "out"
+src := dir / "main.idr"
+
+check:
+	idris2 -c {{src}}
+alias c := check
+
+build:
+	idris2 --build-dir {{out}} --output-dir {{out}} -o main {{src}}
+alias b := build
+
+run: build
+	cd {{dir}} && {{dir / "out" / "main"}}
+alias r := run
+
+clean:
+	rm -rf */out
+alias cl := clean
+
+repl:
+	rlwrap idris2 {{src}}
