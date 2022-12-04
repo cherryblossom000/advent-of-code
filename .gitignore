@@ -16,3 +16,4 @@ build/
 # Unison (pushed to Unison Share instead)
 .unison/
 .unisonConfig
+*.u
