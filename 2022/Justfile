@@ -1,22 +1,23 @@
-dir := invocation_directory()
-out := dir / "out"
-src := dir / "main.idr"
+inv := invocation_directory()
 
-check:
-	idris2 -c {{src}}
+default:
+	for f in */main.idr; do echo "${f%%/*}"; done | xargs -P 0 -n 1 just build
+
+check dir=inv:
+	idris2 -c {{dir / "main.idr"}}
 alias c := check
 
-build:
-	idris2 --build-dir {{out}} --output-dir {{out}} -o main {{src}}
+build dir=inv:
+	idris2 --build-dir {{dir / "out"}} --output-dir {{dir / "out"}} -o main {{dir / "main.idr"}}
 alias b := build
 
-run: build
+run dir=inv: (build dir)
 	cd {{dir}} && {{dir / "out" / "main"}}
 alias r := run
 
 clean:
-	rm -rf */out
+	rm -rf */out build
 alias cl := clean
 
-repl:
-	rlwrap idris2 {{src}}
+repl dir=inv:
+	rlwrap idris2 {{dir / "main.idr"}}
