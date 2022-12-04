@@ -35,13 +35,10 @@ part2 = sum
       )
       . chunk 3
 
-handleError : Show e => e -> IO ()
-handleError = (*> exitFailure) . printLn
-
 partial main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => handleError e
+	| Left e => die (show e)
 	let xs = parse input
 	printLn $ part1 xs
 	printLn $ part2 xs

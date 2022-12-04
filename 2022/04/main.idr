@@ -51,14 +51,14 @@ part1 = solution (&&)
 part2 : Input -> Nat
 part2 = solution (||)
 
-handleError : Show e => e -> IO ()
-handleError = (*> exitFailure) . printLn
+die' : Show e => e -> IO ()
+die' = die . show
 
 main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => handleError e
+	| Left e => die' e
 	let Right xs = parse input
-	| Left e => handleError e
+	| Left e => die' e
 	printLn $ part1 xs
 	printLn $ part2 xs

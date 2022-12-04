@@ -29,14 +29,14 @@ part1 = head
 part2 : List1 Nat -> Nat
 part2 = sum . take 3 . forget
 
-handleError : Show e => e -> IO ()
-handleError = (*> exitFailure) . printLn
+die' : Show e => e -> IO ()
+die' = die . show
 
 main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => handleError e
+	| Left e => die' e
 	let Right xs = parseAndSort input
-	| Left e => handleError e
+	| Left e => die' e
 	printLn $ part1 xs
 	printLn $ part2 xs
