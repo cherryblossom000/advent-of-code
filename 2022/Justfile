@@ -20,4 +20,5 @@ clean:
 alias cl := clean
 
 repl dir=inv:
-	rlwrap idris2 {{dir / "main.idr"}}
+	cd {{dir}} && rlwrap idris2 {{dir / "main.idr"}}
+alias re := repl
