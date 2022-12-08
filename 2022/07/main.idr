@@ -78,8 +78,8 @@ part2 root =
 main : IO ()
 main = do
 	Right rawInputs <- sequence <$> traverse readFile (the (Vect _ _) ["sample.txt", "input.txt"])
-	| Left e => die (show e)
+		| Left e => die (show e)
 	let Just inputs = the (Maybe _) $ traverse parse rawInputs
-	| Nothing => die "parse error"
+		| Nothing => die "parse error"
 	traverse_ (printLn . part1) inputs
 	traverse_ (printLn . part2) inputs

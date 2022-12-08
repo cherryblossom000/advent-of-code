@@ -57,8 +57,8 @@ die' = die . show
 main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => die' e
+	  | Left e => die' e
 	let Right xs = parse input
-	| Left e => die' e
+	  | Left e => die' e
 	printLn $ part1 xs
 	printLn $ part2 xs

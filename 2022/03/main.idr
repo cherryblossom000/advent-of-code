@@ -38,7 +38,7 @@ part2 = sum
 partial main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => die (show e)
+		| Left e => die (show e)
 	let xs = parse input
 	printLn $ part1 xs
 	printLn $ part2 xs

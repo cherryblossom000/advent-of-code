@@ -36,7 +36,7 @@ rtrim = reverse . ltrim . reverse
 parse : String -> Maybe (n ** Input n)
 parse s = do
 	let [cratesLines'@(_ :: _), stepsLines] = splitOn2NewLines $ rtrim s
-	| _ => Nothing
+		| _ => Nothing
 	cratesLines <- traverse (traverse (getAt 1) . chunk 4 . fastUnpack) $ init cratesLines'
 	let crates = fromList $ dropWhile (== ' ') <$> transpose cratesLines
 	steps <- traverse ((\case
@@ -64,8 +64,8 @@ part2 = solution id
 main : IO ()
 main = do
 	Right input <- readFile {io = IO} "input.txt"
-	| Left e => die (show e)
+		| Left e => die (show e)
 	let Just (_ ** xs) = parse input
-	| Nothing => die "parsing error"
+		| Nothing => die "parsing error"
 	putStrLn $ part1 xs
 	putStrLn $ part2 xs

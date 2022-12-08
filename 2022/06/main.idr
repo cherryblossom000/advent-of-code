@@ -33,6 +33,6 @@ part2 = solution 14
 main : IO ()
 main = do
 	Right input <- map parse <$> readFile {io = IO} "input.txt"
-	| Left e => die (show e)
+		| Left e => die (show e)
 	printLn $ part1 input
 	printLn $ part2 input
