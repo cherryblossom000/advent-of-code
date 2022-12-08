@@ -1,14 +1,15 @@
 inv := invocation_directory()
+flags := "-p contrib"
 
 default:
 	for f in */main.idr; do echo "${f%%/*}"; done | xargs -P 0 -n 1 just build
 
 check dir=inv:
-	idris2 -c {{dir / "main.idr"}}
+	idris2 {{flags}} -c {{dir / "main.idr"}}
 alias c := check
 
 build dir=inv:
-	idris2 --build-dir {{dir / "out"}} --output-dir {{dir / "out"}} -o main {{dir / "main.idr"}}
+	idris2 {{flags}} --build-dir {{dir / "out"}} --output-dir {{dir / "out"}} -o main {{dir / "main.idr"}}
 alias b := build
 
 run dir=inv: (build dir)
@@ -20,5 +21,5 @@ clean:
 alias cl := clean
 
 repl dir=inv:
-	cd {{dir}} && rlwrap idris2 {{dir / "main.idr"}}
+	cd {{dir}} && rlwrap idris2 {{flags}} {{dir / "main.idr"}}
 alias re := repl
