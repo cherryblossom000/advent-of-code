@@ -8,7 +8,7 @@ Bingo is played on a set of boards each consisting of a 5x5 grid of numbers. Num
 
 The submarine has a **bingo subsystem** to help passengers (currently, you and the giant squid) pass the time. It automatically generates a random order in which to draw numbers and a random set of boards (your puzzle input). For example:
 
-```
+```none
 7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
 
 22 13 17 11  0
@@ -62,7 +62,7 @@ To guarantee victory against the giant squid, figure out which board will win fi
 
 ## Part Two
 
-On the other hand, it might be wise to try a different strategy: let the giant squid win.
+On the other hand, it might be wise to try a different strategy: <span title="That's 'cuz a submarine don't pull things' antennas out of their sockets when they lose. Giant squid are known to do that.">let the giant squid win</span>.
 
 You aren't sure how many bingo boards a giant squid could play at once, so rather than waste time counting its arms, the safe thing to do is to **figure out which board will win last** and choose that one. That way, no matter which boards it picks, it will win for sure.
 

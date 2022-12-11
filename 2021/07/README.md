@@ -12,7 +12,7 @@ You quickly make a list of **the horizontal position of each crab** (your puzzle
 
 For example, consider the following horizontal positions:
 
-```
+```none
 16,1,2,0,4,2,7,1,2,14
 ```
 
@@ -39,7 +39,7 @@ Determine the horizontal position that the crabs can align to using the least fu
 
 The crabs don't seem interested in your proposed solution. Perhaps you misunderstand crab engineering?
 
-As it turns out, crab submarine engines don't burn fuel at a constant rate. Instead, each change of 1 step in horizontal position costs 1 more unit of fuel than the last: the first step costs `1`, the second step costs `2`, the third step costs `3`, and so on.
+As it turns out, crab submarine engines <span title="This appears to be due to the modial interaction of magneto-reluctance and capacitive duractance.">don't burn fuel at a constant rate</span>. Instead, each change of 1 step in horizontal position costs 1 more unit of fuel than the last: the first step costs `1`, the second step costs `2`, the third step costs `3`, and so on.
 
 As each crab moves, moving further becomes more expensive. This changes the best horizontal position to align them all on; in the example above, this becomes `5`:
 

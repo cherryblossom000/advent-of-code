@@ -1,6 +1,6 @@
 # [Day 2: Dive!](https://adventofcode.com/2021/day/2)
 
-Now, you need to figure out how to pilot this thing.
+Now, you need to figure out how to <span title="Tank, I need a pilot program for a B212 helicopter.">pilot this thing</span>.
 
 It seems like the submarine can take a series of commands like `forward 1`, `down 2`, or `up 3`:
 
@@ -8,11 +8,11 @@ It seems like the submarine can take a series of commands like `forward 1`, `dow
 - `down X` **increases** the depth by `X` units.
 - `up X` **decreases** the depth by `X` units.
 
-Note that since you're on a submarine, down and up affect your **depth**, and so they have the opposite result of what you might expect.
+Note that since you're on a submarine, `down` and `up` affect your **depth**, and so they have the opposite result of what you might expect.
 
 The submarine seems to already have a planned course (your puzzle input). You should probably figure out where it's going. For example:
 
-```
+```none
 forward 5
 down 5
 forward 8

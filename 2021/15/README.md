@@ -4,7 +4,7 @@ You've almost reached the exit of the cave, but the walls are getting closer tog
 
 The cavern is large, but has a very low ceiling, restricting your motion to two dimensions. The shape of the cavern resembles a square; a quick scan of chiton density produces a map of **risk level** throughout the cave (your puzzle input). For example:
 
-```
+```none
 1163751742
 1381373672
 2136511328
@@ -17,7 +17,7 @@ The cavern is large, but has a very low ceiling, restricting your motion to two 
 2311944581
 ```
 
-You start in the top left position, your destination is the bottom right position, and you cannot move diagonally. The number at each position is its **risk level**; to determine the total risk of an entire path, add up the risk levels of each position you **enter** (that is, don't count the risk level of your starting position unless you enter it; leaving it adds no risk to your total).
+You start in the top left position, your destination is the bottom right position, and you <span title="Can't go diagonal until we can repair the caterpillar unit. Could be the liquid helium or the superconductors.">cannot move diagonally</span>. The number at each position is its **risk level**; to determine the total risk of an entire path, add up the risk levels of each position you **enter** (that is, don't count the risk level of your starting position unless you enter it; leaving it adds no risk to your total).
 
 Your goal is to find a path with the **lowest total risk**. In this example, a path with the lowest total risk is highlighted here:
 
@@ -43,7 +43,7 @@ Now that you know how to find low-risk paths in the cave, you can try to find yo
 
 The entire cave is actually **five times larger in both dimensions** than you thought; the area you originally scanned is just one tile in a 5x5 tile area that forms the full map. Your original map tile repeats to the right and downward; each time the tile repeats to the right or downward, all of its risk levels **are 1 higher** than the tile immediately up or left of it. However, risk levels above `9` wrap back around to `1`. So, if your original map had some position with a risk level of `8`, then that same position on each of the 25 total tiles would be as follows:
 
-```
+```none
 8 9 1 2 3
 9 1 2 3 4
 1 2 3 4 5

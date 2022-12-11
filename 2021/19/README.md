@@ -1,6 +1,6 @@
 # [Day 19: Beacon Scanner](https://adventofcode.com/2021/day/19)
 
-As your [probe](https://adventofcode.com/2021/day/17) drifted down through this area, it released an assortment of **beacons** and **scanners** into the water. It's difficult to navigate in the pitch black open waters of the ocean trench, but if you can build a map of the trench using data from the scanners, you should be able to safely reach the bottom.
+As your [probe](../17) drifted down through this area, it released an assortment of **beacons** and **scanners** into the water. It's difficult to navigate in the pitch black open waters of the ocean trench, but if you can build a map of the trench using data from the scanners, you should be able to safely reach the bottom.
 
 The beacons and scanners float motionless in the water; they're designed to maintain the same position for long periods of time. Each scanner is capable of detecting all beacons in a large cube centered on the scanner; beacons that are at most 1000 units away from the scanner in each of the three axes (`x`, `y`, and `z`) have their precise position determined relative to the scanner. However, scanners cannot detect other scanners. The submarine has automatically summarized the relative positions of beacons detected by each scanner (your puzzle input).
 
@@ -12,7 +12,7 @@ The scanners and beacons map a single contiguous 3d region. This region can be r
 
 For a moment, consider only two dimensions. Suppose you have the following scanner reports:
 
-```
+```none
 --- scanner 0 ---
 0,2
 4,1
@@ -24,9 +24,9 @@ For a moment, consider only two dimensions. Suppose you have the following scann
 -2,1
 ```
 
-Drawing x increasing rightward, `y` increasing upward, scanners as `S`, and beacons as `B`, scanner `0` detects this:
+Drawing `x` increasing rightward, `y` increasing upward, scanners as `S`, and beacons as `B`, scanner `0` detects this:
 
-```
+```none
 ...B.
 B....
 ....B
@@ -35,7 +35,7 @@ S....
 
 Scanner `1` detects this:
 
-```
+```none
 ...B..
 B....S
 ....B.
@@ -43,7 +43,7 @@ B....S
 
 For this example, assume scanners only need 3 overlapping beacons. Then, the beacons visible to both scanners overlap to produce the following complete map:
 
-```
+```none
 ...B..
 B....S
 ....B.
@@ -54,7 +54,7 @@ Unfortunately, there's a second problem: the scanners also don't know their **ro
 
 For example, here is an arrangement of beacons as seen from a scanner in the same position but in different orientations:
 
-```
+```none
 --- scanner 0 ---
 -1,-1,1
 -2,-2,2
@@ -98,7 +98,7 @@ For example, here is an arrangement of beacons as seen from a scanner in the sam
 
 By finding pairs of scanners that both see at least 12 of the same beacons, you can assemble the entire map. For example, consider the following report:
 
-```
+```none
 --- scanner 0 ---
 404,-588,-901
 528,-643,409
@@ -241,7 +241,7 @@ Because all coordinates are relative, in this example, all "absolute" positions 
 
 Scanners `0` and `1` have overlapping detection cubes; the 12 beacons they both detect (relative to scanner `0`) are at the following coordinates:
 
-```
+```none
 -618,-824,-621
 -537,-823,-458
 -447,-329,318
@@ -258,7 +258,7 @@ Scanners `0` and `1` have overlapping detection cubes; the 12 beacons they both 
 
 These same 12 beacons (in the same order) but from the perspective of scanner `1` are:
 
-```
+```none
 686,422,578
 605,423,415
 515,917,-361
@@ -277,7 +277,7 @@ Because of this, scanner `1` must be at `68,-1246,-43` (relative to scanner `0`)
 
 Scanner `4` overlaps with scanner `1`; the 12 beacons they both detect (relative to scanner `0`) are:
 
-```
+```none
 459,-707,401
 -739,-1745,668
 -485,-357,347
@@ -298,7 +298,7 @@ Following this process, scanner `2` must be at `1105,-1205,1229` (relative to sc
 
 The full list of beacons (relative to scanner `0`) is:
 
-```
+```none
 -892,524,684
 -876,649,763
 -838,591,734

@@ -1,14 +1,14 @@
-# Day 23: Amphipod
+# [Day 23: Amphipod](https://adventofcode.com/2021/day/23)
 
-A group of [amphipods](https://en.wikipedia.org/wiki/Amphipoda) notice your fancy submarine and flag you down. "With such an impressive shell," one amphipod says, "surely you can help us with a question that has stumped our best scientists."
+A group of [amphipods](https://en.wikipedia.org/wiki/Amphipoda) notice your fancy submarine and flag you down. "With such an impressive shell," one amphipod <span title="What? You didn't know amphipods can talk?">says</span>, "surely you can help us with a question that has stumped our best scientists."
 
-They go on to explain that a group of timid, stubborn amphipods live in a nearby burrow. Four types of amphipods live there: **Amber** (A), **Bronze** (B), **Copper** (C), and **Desert** (D). They live in a burrow that consists of a **hallway** and four **side rooms**. The side rooms are initially full of amphipods, and the hallway is initially empty.
+They go on to explain that a group of timid, stubborn amphipods live in a nearby burrow. Four types of amphipods live there: **Amber** (`A`), **Bronze** (`B`), **Copper** (`C`), and **Desert** (`D`). They live in a burrow that consists of a **hallway** and four **side rooms**. The side rooms are initially full of amphipods, and the hallway is initially empty.
 
 They give you a **diagram of the situation** (your puzzle input), including locations of each amphipod (`A`, `B`, `C`, or `D`, each of which is occupying an otherwise open space), walls (`#`), and open space (`.`).
 
 For example:
 
-```
+```none
 #############
 #...........#
 ###B#C#B#D###
@@ -18,7 +18,7 @@ For example:
 
 The amphipods would like a method to organize every amphipod into side rooms so that each side room contains one type of amphipod and the types are sorted `A`-`D` going left to right, like this:
 
-```
+```none
 #############
 #...........#
 ###A#B#C#D###
@@ -38,7 +38,7 @@ In the above example, the amphipods can be organized using a minimum of **`12521
 
 Starting configuration:
 
-```
+```none
 #############
 #...........#
 ###B#C#B#D###
@@ -48,7 +48,7 @@ Starting configuration:
 
 One Bronze amphipod moves into the hallway, taking 4 steps and using `40` energy:
 
-```
+```none
 #############
 #...B.......#
 ###B#C#.#D###
@@ -58,7 +58,7 @@ One Bronze amphipod moves into the hallway, taking 4 steps and using `40` energy
 
 The only Copper amphipod not in its side room moves there, taking 4 steps and using `400` energy:
 
-```
+```none
 #############
 #...B.......#
 ###B#.#C#D###
@@ -68,7 +68,7 @@ The only Copper amphipod not in its side room moves there, taking 4 steps and us
 
 A Desert amphipod moves out of the way, taking 3 steps and using `3000` energy, and then the Bronze amphipod takes its place, taking 3 steps and using `30` energy:
 
-```
+```none
 #############
 #.....D.....#
 ###B#.#C#D###
@@ -78,7 +78,7 @@ A Desert amphipod moves out of the way, taking 3 steps and using `3000` energy, 
 
 The leftmost Bronze amphipod moves to its room using `40` energy:
 
-```
+```none
 #############
 #.....D.....#
 ###.#B#C#D###
@@ -88,7 +88,7 @@ The leftmost Bronze amphipod moves to its room using `40` energy:
 
 Both amphipods in the rightmost room move into the hallway, using `2003` energy in total:
 
-```
+```none
 #############
 #.....D.D.A.#
 ###.#B#C#.###
@@ -98,7 +98,7 @@ Both amphipods in the rightmost room move into the hallway, using `2003` energy 
 
 Both Desert amphipods move into the rightmost room using `7000` energy:
 
-```
+```none
 #############
 #.........A.#
 ###.#B#C#D###
@@ -108,7 +108,7 @@ Both Desert amphipods move into the rightmost room using `7000` energy:
 
 Finally, the last Amber amphipod moves into its room, using `8` energy:
 
-```
+```none
 #############
 #...........#
 ###A#B#C#D###

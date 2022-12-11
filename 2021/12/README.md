@@ -1,10 +1,10 @@
 # [Day 12: Passage Pathing](https://adventofcode.com/2021/day/12)
 
-With your submarine's subterranean subsystems subsisting suboptimally, the only way you're getting out of this cave anytime soon is by finding a path yourself. Not just **a** path - the only way to know if you've found the **best** path is to find **all** of them.
+With your <span title="Sublime.">submarine's subterranean subsystems subsisting suboptimally</span>, the only way you're getting out of this cave anytime soon is by finding a path yourself. Not just **a** path - the only way to know if you've found the **best** path is to find **all** of them.
 
 Fortunately, the sensors are still mostly working, and so you build a rough map of the remaining caves (your puzzle input). For example:
 
-```
+```none
 start-A
 start-b
 A-c
@@ -18,7 +18,7 @@ This is a list of how all of the caves are connected. You start in the cave name
 
 So, the above cave system looks roughly like this:
 
-```
+```none
     start
     /   \
 c--A-----b--d
@@ -30,7 +30,7 @@ Your goal is to find the number of distinct **paths** that start at `start`, end
 
 Given these rules, there are **`10`** paths through this example cave system:
 
-```
+```none
 start,A,b,A,c,A,end
 start,A,b,A,end
 start,A,b,end
@@ -49,7 +49,7 @@ Note that in this cave system, cave `d` is never visited by any path: to do so, 
 
 Here is a slightly larger example:
 
-```
+```none
 dc-end
 HN-start
 start-kj
@@ -64,7 +64,7 @@ kj-dc
 
 The `19` paths through it are as follows:
 
-```
+```none
 start,HN,dc,HN,end
 start,HN,dc,HN,kj,HN,end
 start,HN,dc,end
@@ -88,7 +88,7 @@ start,kj,dc,end
 
 Finally, this even larger example has `226` paths through it:
 
-```
+```none
 fs-end
 he-DX
 fs-he
@@ -117,7 +117,7 @@ After reviewing the available paths, you realize you might have time to visit a 
 
 Now, the `36` possible paths through the first example above are:
 
-```
+```none
 start,A,b,A,b,A,c,A,end
 start,A,b,A,b,A,end
 start,A,b,A,b,end

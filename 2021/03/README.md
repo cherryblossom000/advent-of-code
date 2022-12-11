@@ -1,6 +1,6 @@
 # [Day 3: Binary Diagnostic](https://adventofcode.com/2021/day/3)
 
-The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.
+The submarine has been making some <span title="Turns out oceans are heavy.">odd creaking noises</span>, so you ask it to produce a diagnostic report just in case.
 
 The diagnostic report (your puzzle input) consists of a list of binary numbers which, when decoded properly, can tell you many useful things about the conditions of the submarine. The first parameter to check is the **power consumption**.
 
@@ -8,7 +8,7 @@ You need to use the binary numbers in the diagnostic report to generate two new 
 
 Each bit in the gamma rate can be determined by finding the **most common bit in the corresponding position** of all numbers in the diagnostic report. For example, given the following diagnostic report:
 
-```
+```none
 00100
 11110
 10110
@@ -52,7 +52,7 @@ The **bit criteria** depends on which type of rating value you want to find:
 
 For example, to determine the **oxygen generator rating** value using the same example diagnostic report from above:
 
-- Start with all `12` numbers and consider only the first bit of each number. There are more `1` bits (7) than `0` bits (5), so keep only the 7 numbers with a `1` in the first position: `11110`, `10110`, `10111`, `10101`, `11100`, `10000`, and `11001`.
+- Start with all 12 numbers and consider only the first bit of each number. There are more `1` bits (7) than `0` bits (5), so keep only the 7 numbers with a `1` in the first position: `11110`, `10110`, `10111`, `10101`, `11100`, `10000`, and `11001`.
 - Then, consider the second bit of the 7 remaining numbers: there are more `0` bits (4) than `1` bits (3), so keep only the 4 numbers with a `0` in the second position: `10110`, `10111`, `10101`, and `10000`.
 - In the third position, three of the four numbers have a `1`, so keep those three: `10110`, `10111`, `and` 10101.
 - In the fourth position, two of the three numbers have a `1`, so keep those two: `10110` and `10111`.

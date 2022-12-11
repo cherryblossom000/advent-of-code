@@ -1,12 +1,12 @@
 # [Day 17: Trick Shot](https://adventofcode.com/2021/day/17)
 
-You finally decode the Elves' message. `HI`, the message says. You continue searching for the sleigh keys.
+You finally decode the Elves' message. <span title="Maybe you need to turn the message 90 degrees counterclockwise?">`HI`</span>, the message says. You continue searching for the sleigh keys.
 
 Ahead of you is what appears to be a large [ocean trench](https://en.wikipedia.org/wiki/Oceanic_trench). Could the keys have fallen into it? You'd better send a probe to investigate.
 
 The probe launcher on your submarine can fire the probe with any [integer](https://en.wikipedia.org/wiki/Integer) velocity in the `x` (forward) and `y` (upward, or downward if negative) directions. For example, an initial `x,y` velocity like `0,10` would fire the probe straight up, while an initial velocity like `10,-1` would fire the probe forward at a slight downward angle.
 
-The probe's `x,y` position starts at `0,0`. Then, it will follow some trajectory by moving in steps. On each step, these changes occur in the following order:
+The probe's `x,y` position starts at `0,0`. Then, it will follow some trajectory by moving in **steps**. On each step, these changes occur in the following order:
 
 - The probe's `x` position increases by its `x` velocity.
 - The probe's `y` position increases by its `y` velocity.
@@ -15,7 +15,7 @@ The probe's `x,y` position starts at `0,0`. Then, it will follow some trajectory
 
 For the probe to successfully make it into the trench, the probe must be on some trajectory that causes it to be within a **target area** after any step. The submarine computer has already calculated this target area (your puzzle input). For example:
 
-```
+```none
 target area: x=20..30, y=-10..-5
 ```
 
@@ -23,7 +23,7 @@ This target area means that you need to find initial `x,y` velocity values such 
 
 Given this target area, one initial velocity that causes the probe to be within the target area after any step is `7,2`:
 
-```
+```none
 .............#....#............
 .......#..............#........
 ...............................
@@ -44,7 +44,7 @@ In this diagram, `S` is the probe's initial position, `0,0`. The `x` coordinate 
 
 Another initial velocity that causes the probe to be within the target area after any step is `6,3`:
 
-```
+```none
 ...............#..#............
 ...........#........#..........
 ...............................
@@ -66,7 +66,7 @@ S....................#.........
 
 Another one is `9,0`:
 
-```
+```none
 S........#.....................
 .................#.............
 ...............................
@@ -82,7 +82,7 @@ S........#.....................
 
 One initial velocity that **doesn't** cause the probe to be within the target area after any step is `17,-4`:
 
-```
+```none
 S..............................................................
 ...............................................................
 ...............................................................
@@ -112,9 +112,9 @@ The probe appears to pass through the target area, but is never within it after 
 
 If you're going to fire a highly scientific probe out of a super cool probe launcher, you might as well do it with **style**. How high can you make the probe go while still reaching the target area?
 
-In the above example, using an initial velocity of `6,9` is the best you can do, causing the probe to reach a maximum y position of **`45`**. (Any higher initial `y` velocity causes the probe to overshoot the target area entirely.)
+In the above example, using an initial velocity of `6,9` is the best you can do, causing the probe to reach a maximum `y` position of **`45`**. (Any higher initial `y` velocity causes the probe to overshoot the target area entirely.)
 
-Find the initial velocity that causes the probe to reach the highest `y` position and still eventually be within the target area after any step. **What is the highest y position it reaches on this trajectory?**
+Find the initial velocity that causes the probe to reach the highest `y` position and still eventually be within the target area after any step. **What is the highest `y` position it reaches on this trajectory?**
 
 ## Part Two
 
@@ -124,7 +124,7 @@ To get the best idea of what your options are for launching the probe, you need 
 
 In the above example, there are **`112`** different initial velocity values that meet these criteria:
 
-```
+```none
 23,-10  25,-9   27,-5   29,-6   22,-6   21,-7   9,0     27,-7   24,-5
 25,-7   26,-6   25,-5   6,8     11,-2   20,-5   29,-10  6,3     28,-7
 8,0     30,-6   29,-8   20,-10  6,7     6,4     6,1     14,-4   21,-6

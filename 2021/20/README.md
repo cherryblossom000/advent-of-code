@@ -6,7 +6,7 @@ When you get back the image from the scanners, it seems to just be random noise.
 
 For example:
 
-```
+```none
 ..#.#..#####.#.#.#.###.##.....###.##.#..###.####..#####..#....#..#..##..##
 #..######.###...####..#..#####..##..#.#####...##.#.#..#.##..#.#......#.###
 .######.###.####...#.##.##..#..#..#####.....#.#....###..#.##......#.....#.
@@ -28,7 +28,7 @@ The image enhancement algorithm describes how to enhance an image by **simultane
 
 For example, to determine the output pixel that corresponds to the very middle pixel of the input image, the nine pixels marked by `[...]` would need to be considered:
 
-```
+```none
 # . . # .
 #[. . .].
 #[# . .]#
@@ -40,7 +40,7 @@ Starting from the top-left and reading across each row, these pixels are `...`, 
 
 The image enhancement algorithm string is exactly 512 characters long, enough to match every possible 9-bit binary number. The first few characters of the string (numbered starting from zero) are as follows:
 
-```
+```none
 0         10        20        30  34    40        50        60        70
 |         |         |         |   |     |         |         |         |
 ..#.#..#####.#.#.#.###.##.....###.##.#..###.####..#####..#....#..#..##..##
@@ -54,7 +54,7 @@ Through advances in imaging technology, the images being operated on here are **
 
 The starting input image, therefore, looks something like this, with more dark pixels (`.`) extending forever in every direction not shown here:
 
-```
+```none
 ...............
 ...............
 ...............
@@ -74,7 +74,7 @@ The starting input image, therefore, looks something like this, with more dark p
 
 By applying the image enhancement algorithm to every pixel simultaneously, the following output image can be obtained:
 
-```
+```none
 ...............
 ...............
 ...............
@@ -94,7 +94,7 @@ By applying the image enhancement algorithm to every pixel simultaneously, the f
 
 Through further advances in imaging technology, the above output image can also be used as an input image! This allows it to be enhanced **a second time**:
 
-```
+```none
 ...............
 ...............
 ...............
@@ -118,7 +118,7 @@ Start with the original input image and apply the image enhancement algorithm tw
 
 ## Part Two
 
-You still can't quite make out the details in the image. Maybe you just didn't [enhance](https://en.wikipedia.org/wiki/Kernel_(image_processing)) it enough.
+You still can't quite make out the details in the image. Maybe you just didn't [enhance](https://en.wikipedia.org/wiki/Kernel_(image_processing)) it <span title="Yeah, that's definitely the problem.">enough</span>.
 
 If you enhance the starting input image in the above example a total of **`50`** times, **`3351`** pixels are lit in the final output image.
 

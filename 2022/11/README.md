@@ -216,14 +216,12 @@ Monkey 3:
 
 Chasing all of the monkeys at once is impossible; you're going to have to focus on the **two most active** monkeys if you want any hope of getting your stuff back. Count the **total number of times each monkey inspects items** over 20 rounds:
 
-```none
-Monkey 0 inspected items 101 times.
+<pre><code><<strong>Monkey 0 inspected items 101 times.</strong>
 Monkey 1 inspected items 95 times.
 Monkey 2 inspected items 7 times.
-Monkey 3 inspected items 105 times.
-```
+<strong>Monkey 3 inspected items 105 times.</strong></code></pre>
 
-In this example, the two most active monkeys inspected items 101 and 105 times. The level of **monkey business** in this situation can be found by multiplying these together: `10605`.
+In this example, the two most active monkeys inspected items 101 and 105 times. The level of **monkey business** in this situation can be found by multiplying these together: **`10605`**.
 
 Figure out which monkeys to chase by counting how many items they inspect over 20 rounds. **What is the level of monkey business after 20 rounds of stuff-slinging simian shenanigans?**
 
@@ -310,6 +308,6 @@ Monkey 2 inspected items 1938 times.
 <strong>Monkey 3 inspected items 52013 times.</strong>
 </code></pre>
 
-After 10000 rounds, the two most active monkeys inspected items 52166 and 52013 times. Multiplying these together, the level of **monkey business** in this situation is now `2713310158`.
+After 10000 rounds, the two most active monkeys inspected items 52166 and 52013 times. Multiplying these together, the level of **monkey business** in this situation is now **`2713310158`**.
 
 Worry levels are no longer divided by three after each item is inspected; you'll need to find another way to keep your worry levels manageable. Starting again from the initial state in your puzzle input, **what is the level of monkey business after 10000 rounds?**

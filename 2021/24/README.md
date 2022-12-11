@@ -1,4 +1,4 @@
-# Day 24: Arithmetic Logic Unit
+# [Day 24: Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)
 
 [Magic smoke](https://en.wikipedia.org/wiki/Magic_smoke) starts leaking from the submarine's [arithmetic logic unit](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) (ALU). Without the ability to perform basic arithmetic and logic functions, the submarine can't produce cool patterns with its Christmas lights!
 
@@ -6,7 +6,7 @@ It also can't navigate. Or run the oxygen system.
 
 Don't worry, though - you **probably** have enough oxygen left to give you enough time to build a new ALU.
 
-The ALU is a four-dimensional processing unit: it has integer variables `w`, `x`, `y`, and `z`. These variables all start with the value 0. The ALU also supports **six instructions**:
+The ALU is a four-dimensional processing unit: it has integer variables `w`, `x`, `y`, and `z`. These variables all start with the value `0`. The ALU also supports **six instructions**:
 
 - `inp a` - Read an input value and write it to variable `a`.
 - `add a b` - Add the value of `a` to the value of `b`, then store the result in variable `a`.
@@ -19,18 +19,18 @@ In all of these instructions, `a` and `b` are placeholders; `a` will always be t
 
 The ALU has no **jump** instructions; in an ALU program, every instruction is run exactly once in order from top to bottom. The program halts after the last instruction has finished executing.
 
-(Program authors should be especially cautious; attempting to execute `div` with `b=0` or attempting to execute mod with `a<0` or `b<=0` will cause the program to crash and might even damage the ALU. These operations are never intended in any serious ALU program.)
+(Program authors should be especially cautious; attempting to execute `div` with `b=0` or attempting to execute `mod` with `a<0` or `b<=0` will cause the program to crash and might even <span title="Maybe this is what happened to the last one.">damage the ALU</span>. These operations are never intended in any serious ALU program.)
 
 For example, here is an ALU program which takes an input number, negates it, and stores it in `x`:
 
-```
+```none
 inp x
 mul x -1
 ```
 
 Here is an ALU program which takes two input numbers, then sets `z` to `1` if the second input number is three times larger than the first input number, or sets `z` to `0` otherwise:
 
-```
+```none
 inp z
 inp x
 mul z 3
@@ -39,7 +39,7 @@ eql z x
 
 Here is an ALU program which takes a non-negative integer as input, converts it into binary, and stores the lowest (1's) bit in `z`, the second-lowest (2's) bit in `y`, the third-lowest (4's) bit in `x`, and the fourth-lowest (8's) bit in `w`:
 
-```
+```none
 inp w
 add z w
 mod z 2

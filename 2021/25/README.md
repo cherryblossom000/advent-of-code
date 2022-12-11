@@ -14,7 +14,7 @@ You explain that you'd like to predict when you could land your submarine.
 
 There are two herds of sea cucumbers sharing the same region; one always moves **east** (`>`), while the other always moves **south** (`v`). Each location can contain at most one sea cucumber; the remaining locations are **empty** (`.`). The submarine helpfully generates a map of the situation (your puzzle input). For example:
 
-```
+```none
 v...>>.vv>
 .vv>>.vv..
 >>.>v>...v
@@ -30,22 +30,25 @@ Every **step**, the sea cucumbers in the east-facing herd attempt to move forwar
 
 So, in a situation like this:
 
-```
+```none
 ...>>>>>...
 ```
 
 After one step, only the rightmost sea cucumber would have moved:
 
-```
+```none
 ...>>>>.>..
 ```
 
 After the next step, two sea cucumbers move:
 
+```none
 ...>>>.>.>.
+```
+
 During a single step, the east-facing herd moves first, then the south-facing herd moves. So, given this situation:
 
-```
+```none
 ..........
 .>v....v..
 .......>..
@@ -54,7 +57,7 @@ During a single step, the east-facing herd moves first, then the south-facing he
 
 After a single step, of the sea cucumbers on the left, only the south-facing sea cucumber has moved (as it wasn't out of the way in time for the east-facing cucumber on the left to move), but both sea cucumbers on the right have moved (as the east-facing sea cucumber moved out of the way of the south-facing sea cucumber):
 
-```
+```none
 ..........
 .>........
 ..v....v>.
@@ -63,7 +66,7 @@ After a single step, of the sea cucumbers on the left, only the south-facing sea
 
 Due to **strong water currents** in the area, sea cucumbers that move off the right edge of the map appear on the left edge, and sea cucumbers that move off the bottom edge of the map appear on the top edge. Sea cucumbers always check whether their destination location is empty before moving, even if that destination is on the opposite side of the map:
 
-```
+```none
 Initial state:
 ...>...
 .......
@@ -112,7 +115,7 @@ v......
 
 To find a safe place to land your submarine, the sea cucumbers need to stop moving. Again consider the first example:
 
-```
+```none
 Initial state:
 v...>>.vv>
 .vv>>.vv..
