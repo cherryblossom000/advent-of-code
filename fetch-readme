@@ -1,0 +1,16 @@
+#!/bin/bash
+
+pwd="$(pwd)"
+base="${pwd##*/}"
+dir="${pwd%/*}"
+xhs "https://adventofcode.com/${dir##*/}/day/${base#0}" "Cookie:session=$ADVENT_OF_CODE_TOKEN" \
+| htmlq 'article.day-desc > *' \
+| pandoc -f html -t markdown -L "$(dirname "$0")/filter.lua" --wrap none \
+| sd -- '-   ' '- ' \
+| sd '    -' '  -' \
+| sd '\\'"'" "'" \
+| sd '\\"' '"' \
+| sd '\\-' '-' \
+| sd '\\\.\.\.' '...' \
+| sd '\[(.+?)\]\{title="(.+?)"\}' '<span title="$2">$1</span>' \
+> README.md
