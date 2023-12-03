@@ -1,6 +1,5 @@
 #!/usr/bin/env runhaskell
 
-{-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -Wall #-}
@@ -46,7 +45,9 @@ part1 =
   sum . map fst . filter (all (\(r, g, b) -> r <= 12 && g <= 13 && b <= 14) . snd)
 
 part2 :: Input -> Int
-part2 = sum . map (product . map (maximum . (0 :)) . (\(a, b, c) -> [a, b, c]) . unzip3 . snd)
+part2 =
+  sum
+    . map (product . map (maximum . (0 :)) . (\(a, b, c) -> [a, b, c]) . unzip3 . snd)
 
 main :: IO ()
 main = do
