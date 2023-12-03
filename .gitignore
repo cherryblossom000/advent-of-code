@@ -3,7 +3,6 @@
 *.hi
 *.o
 .ghci
-template.hs
 # Rust
 target/
 # Idris
